@@ -1,6 +1,7 @@
 package com.daniel.zsar.finalprojectapplication
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,9 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,9 +40,15 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         })
         button2.setOnClickListener(View.OnClickListener {
-            var intent = Intent(Intent.ACTION_CALL);
-            intent.data = Uri.parse("tel:1111111111")
-            startActivity(intent)
+
+            try {
+                var intent = Intent(Intent.ACTION_CALL, Uri.parse("tel://1111111111"))
+                startActivity(intent)
+            }
+            catch (e: Exception){
+
+            }
+
         })
     }
 }

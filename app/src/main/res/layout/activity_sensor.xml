@@ -11,7 +11,7 @@
     android:text="TextViewX"
     android:textSize="20sp"
     android:layout_margin="16dp"
-    android:id="@+id/textView5"
+    android:id="@+id/text1"
     android:textAlignment="center"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
@@ -22,21 +22,21 @@
         android:text="TextViewY"
         android:textSize="20sp"
         android:layout_margin="16dp"
-        android:id="@+id/textView6"
+        android:id="@+id/text2"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView5"/>
+        app:layout_constraintTop_toBottomOf="@id/text1"/>
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="TextViewZ"
         android:textSize="20sp"
         android:layout_margin="16dp"
-        android:id="@+id/textView7"
+        android:id="@+id/text3"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView6"/>
+        app:layout_constraintTop_toBottomOf="@id/text2"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
