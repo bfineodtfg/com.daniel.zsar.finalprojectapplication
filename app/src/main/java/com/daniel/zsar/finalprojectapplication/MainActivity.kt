@@ -1,5 +1,6 @@
 package com.daniel.zsar.finalprojectapplication
 
+import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -9,6 +10,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -18,12 +20,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         addEvents()
-
-
-
-
-
-
     }
 
     fun addEvents(){
@@ -40,14 +36,19 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         })
         button2.setOnClickListener(View.OnClickListener {
-
-            try {
+            if (ContextCompat.checkSelfPermission(this,Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED){
+                button1.text = "yes"
                 var intent = Intent(Intent.ACTION_CALL, Uri.parse("tel://1111111111"))
                 startActivity(intent)
             }
-            catch (e: Exception){
-
+            else{
+                button1.text = "No"
+                requestPermissions(
+                    arrayOf(Manifest.permission.CALL_PHONE),
+                    20
+                )
             }
+
 
         })
     }
